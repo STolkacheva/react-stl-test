@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "dfgdfgdf",
+      "email": "ayrtetert@mail.ru",
+      "phone": "435345634",
+      "country": "Russia",
+      "age": "21"
+    },
+    {
+      "id": 2,
+      "name": "fdfsdfs",
+      "email": "fbgd@mail.ru",
+      "phone": "+7952734563",
+      "country": "Australia",
+      "age": "33"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+@import-normalize;
+
+:root {
+
+  --family: 'Roboto', sans-serif;
+  --fs-xs: 10px;
+  --fs-s: 12px;
+  --fs-m: 14px;
+  --fs-l: 16px;
+  --fs-xl: 18px;
+  --fw-normal: 400;
+  --fw-bold: 700;
+  --lh-normal: 1.4;
+  --lh-largh: 1.6;
+  --radius: 8px;
+
+  --black: #000000;
+  --grey:  #BDBDBD;
+  --white: #ffffff;
+  --blue: #4B51EF;
+  --green: #52CF4F;
+}
+html,
+body {
+  margin: 0;
+  text-align: left;
+  font-family: var(--family);
+  font-weight: var(--fw-normal);
+  font-size: var(--fs-m);
+  line-height: var(--lh-normal);
+  color: var(--black);
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+button {  
+  padding: 5px 12px;
+  background: var(--blue);
+  border-radius: var(--radius);
+  border: 0px;
+  color: var(--white);
+}
+
+button:hover {
+  opacity: 0.5;
+}
