@@ -5,19 +5,16 @@ import SelectInput from "./SelectInput";
 
 export const UserInfoEl = styled.div``;
 export const User = styled.div`
-  width: 400px;
+  min-width: 300px;
+  max-width: 500px;
   box-sizing: border-box;
   border-radius: var(--radius);
   border: 1px solid var(--grey);
-  padding: 3%;
+  padding: 10px;
   margin-bottom: 15px;
 
   p {
     font-size: var(--fs-s);
-  }
-
-  @media (max-width: 459px) {
-    width: auto;
   }
 `;
 export const Input = styled.input`

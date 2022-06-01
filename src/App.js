@@ -6,8 +6,8 @@ import NewUserPage from "./pages/NewUserPage";
 import styled from "styled-components";
 
 export const Container = styled.div`
-    margin: 3%;
-    min-width: 320px;
+    margin: 3% 5%;
+    min-width: 300px;
 `;
 
 function App() {

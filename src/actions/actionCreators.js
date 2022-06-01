@@ -47,7 +47,7 @@ export const fetchUsers = () => async (dispatch, getState) => {
     const data = await response.json();
     dispatch(fetcUsersSuccess(data));
   } catch (e) {
-    dispatch(fetcUsersFailure(e.message));
+    dispatch(fetcUsersFailure(`Loading error: ${e.message}`));
   }
 };
 
@@ -74,10 +74,10 @@ export const removeUser = (id) => async (dispatch) => {
       throw new Error(response.statusText);
     }
     dispatch(removeUserSuccess());
+    dispatch(fetchUsers());
   } catch (e) {
-    dispatch(removeUserFailure(e.message));
+    dispatch(removeUserFailure(`Remove error: ${e.message}`));
   }
-  dispatch(fetchUsers());
 };
 
 export const submitSuccess = () => ({
@@ -108,7 +108,7 @@ export const fetchSubmit = (user) => async (dispatch) => {
     }
     dispatch(submitSuccess());
   } catch (e) {
-    dispatch(submitFailure(e.message));
+    dispatch(submitFailure(`Save error: ${e.message}`));
   }
 };
 
@@ -140,6 +140,6 @@ export const fetchUpdate = (user) => async (dispatch) => {
     }
     dispatch(updateSuccess());
   } catch (e) {
-    dispatch(updateFailure(e.message));
+    dispatch(updateFailure(`Update error: ${e.message}`));
   }
 };

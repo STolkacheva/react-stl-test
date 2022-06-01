@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 export const UserItemEl = styled.div`
+  width: 300px;
   margin-bottom: 20px;    
   margin-right: 20px;
   padding: 10px;
