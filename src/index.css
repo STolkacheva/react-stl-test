@@ -12,13 +12,12 @@
   --fw-bold: 700;
   --lh-normal: 1.4;
   --lh-largh: 1.6;
-  --radius: 8px;
+  --radius: 5px;
 
-  --black: #000000;
-  --grey:  #BDBDBD;
+  --black: #5e5d5d;
+  --grey:  #d8d8d8;
   --white: #ffffff;
-  --blue: #4B51EF;
-  --green: #52CF4F;
+  --blue: #151868;
 }
 html,
 body {
@@ -39,10 +38,10 @@ body {
 
 button {  
   padding: 5px 12px;
-  background: var(--blue);
+  background: var(--grey);
   border-radius: var(--radius);
   border: 0px;
-  color: var(--white);
+  color: var(--black);
 }
 
 button:hover {

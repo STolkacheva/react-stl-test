@@ -1,3 +1,12 @@
+## Запуск проекта
+
+- выполнить следующую команду `npm install`
+- в терминале запустить json-server  `json-server src/fixtures.json`
+- во втором терминале запустите `npm start`
+- откройте страницу `http://localhost:3001/`
+
+## Task
+
 1.  Generate new project with create react app
 2.  Create new repo on your github or bitbucket account and put that project there
 3.  The main task is:

@@ -10,32 +10,36 @@ import {
   SUBMIT_SUCCESS,
   UPDATE_REQUEST,
   UPDATE_FAILURE,
-  UPDATE_SUCCESS
+  UPDATE_SUCCESS,
+  USERS_SORTING,
 } from "../actions/actionTypes";
 
 const initialState = {
   users: [],
+  sort: "",
   loading: false,
   error: null,
 };
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
-    case USERS_REQUEST: 
-    case REMOVE_USER_REQUEST: 
-    case SUBMIT_REQUEST: 
+    case USERS_REQUEST:
+    case REMOVE_USER_REQUEST:
+    case SUBMIT_REQUEST:
     case UPDATE_REQUEST: {
       return {
+        ...state,
         users: [],
         loading: true,
         error: null,
       };
     }
-    case USERS_FAILURE: 
-    case REMOVE_USER_FAILURE: 
-    case SUBMIT_FAILURE: 
+    case USERS_FAILURE:
+    case REMOVE_USER_FAILURE:
+    case SUBMIT_FAILURE:
     case UPDATE_FAILURE: {
       return {
+        ...state,
         users: [],
         loading: false,
         error: action.payload,
@@ -43,9 +47,16 @@ export default function userReducer(state = initialState, action) {
     }
     case USERS_SUCCESS: {
       return {
+        ...state,
         users: action.payload,
         loading: false,
         error: null,
+      };
+    }
+    case USERS_SORTING: {
+      return {
+        ...state,
+        sort: action.payload,
       };
     }
     case REMOVE_USER_SUCCESS:

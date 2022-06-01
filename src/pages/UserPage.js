@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import UserForm from "../components/UserForm.js";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import { fetchUpdate } from '../actions/actionCreators';
+import { fetchUpdate } from "../actions/actionCreators";
 
 export default function UserPage() {
   const [user, setUser] = useState();
@@ -26,10 +26,15 @@ export default function UserPage() {
   const close = () => {
     navigate(`/`);
   };
-  
+
   return (
     <React.Fragment>
-      <UserForm user={user} onSubmit={submit} onChange={changeField} onCancel={close}/>
+      <UserForm
+        user={user}
+        onSubmit={submit}
+        onChange={changeField}
+        onCancel={close}
+      />
     </React.Fragment>
   );
 }

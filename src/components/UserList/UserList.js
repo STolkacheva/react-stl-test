@@ -17,13 +17,13 @@ export const Title = styled.label`
 export const Button = styled.button``;
 
 export default function UserList() {
-  const { users, error, loading } = useSelector((state) => state);
+  const { users, sort, error, loading } = useSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchUsers());
-  }, [dispatch]);
+  }, [dispatch, sort]);
 
   if (loading) {
     return <h1>Loading ... </h1>;

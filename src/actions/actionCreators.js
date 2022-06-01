@@ -10,8 +10,14 @@ import {
   SUBMIT_REQUEST,
   UPDATE_FAILURE,
   UPDATE_SUCCESS,
-  UPDATE_REQUEST
+  UPDATE_REQUEST,
+  USERS_SORTING,
 } from "../actions/actionTypes";
+
+export const userSorting = (params) => ({
+  type: USERS_SORTING,
+  payload: params,
+});
 
 export const fetcUsersRequest = () => ({
   type: USERS_REQUEST,
@@ -27,18 +33,21 @@ export const fetcUsersSuccess = (items) => ({
   payload: items,
 });
 
-export const fetchUsers = (sortBy) => async (dispatch) => {
+export const fetchUsers = () => async (dispatch, getState) => {
+  const { sort } = getState();
+  const params = new URLSearchParams();
+  sort && params.set("_sort", sort);
+
   dispatch(fetcUsersRequest());
   try {
-    const sort = sortBy === "" ? "" : `?_sort=${sortBy}`
-    const response = await fetch(`http://localhost:3000/users${sort}`);
+    const response = await fetch(`http://localhost:3000/users?${params}`);
     if (!response.ok) {
       throw new Error(response.statusText);
     }
     const data = await response.json();
     dispatch(fetcUsersSuccess(data));
   } catch (e) {
-    dispatch(fetcUsersFailure("ошибка загрузки!"));
+    dispatch(fetcUsersFailure(e.message));
   }
 };
 
@@ -55,7 +64,7 @@ export const removeUserFailure = (error) => ({
   payload: error,
 });
 
-export const removeUser = (id) => async (dispatch) =>{
+export const removeUser = (id) => async (dispatch) => {
   dispatch(removeUserRequest());
   try {
     const response = await fetch(`http://localhost:3000/users/${id}`, {
@@ -66,7 +75,7 @@ export const removeUser = (id) => async (dispatch) =>{
     }
     dispatch(removeUserSuccess());
   } catch (e) {
-    dispatch(removeUserFailure("ошибка загрузки!"));
+    dispatch(removeUserFailure(e.message));
   }
   dispatch(fetchUsers());
 };
@@ -92,7 +101,7 @@ export const fetchSubmit = (user) => async (dispatch) => {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify({...user}),
+      body: JSON.stringify({ ...user }),
     });
     if (!response.ok) {
       throw new Error(response.statusText);
@@ -124,7 +133,7 @@ export const fetchUpdate = (user) => async (dispatch) => {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify({...user}),
+      body: JSON.stringify({ ...user }),
     });
     if (!response.ok) {
       throw new Error(response.statusText);

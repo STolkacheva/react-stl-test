@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import { removeUser } from "../../actions/actionCreators";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 export const UserItemEl = styled.div`
   margin-bottom: 20px;    
@@ -17,7 +18,8 @@ export const UserItemInfo = styled.div`
   }
 `;
 export const ItemTitle = styled.label`
-  color: var(--grey);
+  color: var(--black);
+  font-weight: var(--fw-bold);
   margin-right: 7px;
 `;
 export const ItemValue = styled.label``;
@@ -28,8 +30,8 @@ export const Button = styled.button`
   }
 `;
 
-export default function UserItem(props) {
-  const { user } = props;
+export default function UserItem({ user }) {
+  
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -70,3 +72,6 @@ export default function UserItem(props) {
     </UserItemEl>
   );
 }
+UserItem.propTypes = {
+  user: PropTypes.object.isRequired,
+};
