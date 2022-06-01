@@ -51,7 +51,7 @@ export default function UserForm({ user, onSubmit, onChange, onCancel }) {
     onCancel();
   };
 
-  return user ? (
+  return (
     <UserInfoEl>
       <div>
         <Title>Профиль пользователя</Title>
@@ -88,12 +88,12 @@ export default function UserForm({ user, onSubmit, onChange, onCancel }) {
         <ButtonSubmit type="submit"> Save </ButtonSubmit>
       </form>
     </UserInfoEl>
-  ) : null;
+  );
 }
 
 UserForm.propTypes = {
-  user: PropTypes.object,
-  onSubmit: PropTypes.func,
-  onChange: PropTypes.func,
-  onCancel: PropTypes.func,
+  user: PropTypes.object.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
 };

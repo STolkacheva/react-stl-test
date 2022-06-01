@@ -54,5 +54,5 @@ SelectInput.propTypes = {
   name: PropTypes.string,
   list: PropTypes.arrayOf(PropTypes.string),
   selectedValue: PropTypes.string,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired
 };
