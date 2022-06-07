@@ -17,6 +17,7 @@ import {
 const initialState = {
   users: [],
   sort: "",
+  success: false,
   loading: false,
   error: null,
 };
@@ -29,6 +30,7 @@ export default function userReducer(state = initialState, action) {
     case UPDATE_REQUEST: {
       return {
         ...state,
+        success: false,
         loading: true,
         error: null,
       };
@@ -39,6 +41,7 @@ export default function userReducer(state = initialState, action) {
     case UPDATE_FAILURE: {
       return {
         ...state,
+        success: false,
         loading: false,
         error: action.payload,
       };
@@ -47,6 +50,7 @@ export default function userReducer(state = initialState, action) {
       return {
         ...state,
         users: action.payload,
+        success: false,
         loading: false,
         error: null,
       };
@@ -57,9 +61,15 @@ export default function userReducer(state = initialState, action) {
         sort: action.payload,
       };
     }
-    case REMOVE_USER_SUCCESS:
     case SUBMIT_SUCCESS:
-    case UPDATE_SUCCESS:
+    case UPDATE_SUCCESS:      
+    return {
+      ...state,
+      success: true,
+      loading: false,
+      error: null,
+    };
+    case REMOVE_USER_SUCCESS:
     default:
       return state;
   }

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchSubmit } from "../actions/actionCreators";
 import UserForm from "../components/UserForm.js";
 
@@ -14,9 +14,14 @@ const userInit = {
 };
 
 export default function UserNew() {
+  const { success } = useSelector((state) => state);
   const [user, setUser] = useState(userInit);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    success && navigate(`/`);
+  }, [success]);
 
   const changeField = (name, value) => {
     setUser((prev) => ({ ...prev, [name]: value }));
@@ -24,7 +29,6 @@ export default function UserNew() {
 
   const submit = () => {
     dispatch(fetchSubmit(user));
-    navigate(`/`);
   };
 
   const close = () => {

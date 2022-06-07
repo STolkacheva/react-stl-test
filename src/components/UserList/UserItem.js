@@ -37,7 +37,7 @@ export default function UserItem({ user }) {
   const dispatch = useDispatch();
 
   const onHandleInfo = (item) => {
-    navigate(`/${item.id}`, { state: { ...item } });
+    navigate(`/${item.id}`);
   };
 
   const handleRemove = (id) => {
