@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import SelectInput from "./SelectInput";
+import { useSelector } from "react-redux";
 
 export const UserInfoEl = styled.div``;
 export const User = styled.div`
@@ -37,6 +38,9 @@ export const Title = styled.label`
 `;
 
 export default function UserForm({ user, onSubmit, onChange, onCancel }) {
+
+  const { error, loading } = useSelector((state) => state);
+
   const onChangeField = (event) => {
     const { name, value } = event.target;
     onChange(name, value);
@@ -50,6 +54,18 @@ export default function UserForm({ user, onSubmit, onChange, onCancel }) {
   const onHandleCancel = () => {
     onCancel();
   };
+
+  if (loading) {
+    return <h1>Loading ... </h1>;
+  }
+
+  if (error) {
+    return <h1>{error}</h1>;
+  }
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <UserInfoEl>
@@ -92,7 +108,7 @@ export default function UserForm({ user, onSubmit, onChange, onCancel }) {
 }
 
 UserForm.propTypes = {
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
