@@ -29,7 +29,6 @@ export default function userReducer(state = initialState, action) {
     case UPDATE_REQUEST: {
       return {
         ...state,
-        users: [],
         loading: true,
         error: null,
       };
@@ -40,7 +39,6 @@ export default function userReducer(state = initialState, action) {
     case UPDATE_FAILURE: {
       return {
         ...state,
-        users: [],
         loading: false,
         error: action.payload,
       };
