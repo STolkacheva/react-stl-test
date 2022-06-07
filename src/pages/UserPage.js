@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import UserForm from "../components/UserForm.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { fetchUpdate } from "../actions/actionCreators";
+import { fetchUpdate } from "../redux/actions";
 
 export default function UserPage() {
 

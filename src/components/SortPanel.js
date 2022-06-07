@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { userSorting } from "../actions/actionCreators";
+import { userSorting } from "../redux/actions";
 import styled from "styled-components";
 
 export const SortPanelEl = styled.div`

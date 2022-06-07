@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { removeUser } from "../../actions/actionCreators";
+import { removeUser } from "../../redux/actions";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 

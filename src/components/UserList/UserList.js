@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "../../actions/actionCreators";
+import { fetchUsers } from "../../redux/actions";
 import styled from "styled-components";
 import UserItem from "./UserItem";
 

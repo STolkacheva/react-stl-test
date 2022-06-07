@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSubmit } from "../actions/actionCreators";
+import { fetchSubmit } from "../redux/actions";
 import UserForm from "../components/UserForm.js";
 
 const userInit = {

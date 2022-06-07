@@ -12,7 +12,7 @@ import {
   UPDATE_SUCCESS,
   UPDATE_REQUEST,
   USERS_SORTING,
-} from "../actions/actionTypes";
+} from "./types";
 
 export const userSorting = (params) => ({
   type: USERS_SORTING,

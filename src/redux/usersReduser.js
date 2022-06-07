@@ -12,7 +12,7 @@ import {
   UPDATE_FAILURE,
   UPDATE_SUCCESS,
   USERS_SORTING,
-} from "../actions/actionTypes";
+} from "./types";
 
 const initialState = {
   users: [],
