@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "../../redux/actions";
 import styled from "styled-components";
 import UserItem from "./UserItem";
+import { fetchUsers } from "../../store/usersSlice";
 
 export const UserListEl = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ export const Title = styled.label`
 export const Button = styled.button``;
 
 export default function UserList() {
-  const { users, sort, error, loading } = useSelector((state) => state);
+  const { users, sort, error, loading } = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

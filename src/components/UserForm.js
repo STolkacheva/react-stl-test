@@ -39,7 +39,7 @@ export const Title = styled.label`
 
 export default function UserForm({ user, onSubmit, onChange, onCancel }) {
 
-  const { error, loading } = useSelector((state) => state);
+  const { error, loading } = useSelector((state) => state.users);
 
   const onChangeField = (event) => {
     const { name, value } = event.target;

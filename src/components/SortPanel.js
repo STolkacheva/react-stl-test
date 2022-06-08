@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { userSorting } from "../redux/actions";
 import styled from "styled-components";
+import { userSorting } from "../store/usersSlice";
 
 export const SortPanelEl = styled.div`
   margin-bottom: 15px;
@@ -15,13 +15,13 @@ export const Select = styled.select`
 `;
 
 export default function SortPanel() {
-  const { sort } = useSelector((state) => state);
+  let sort = useSelector((state) => state.users.sort);
 
   const dispatch = useDispatch();
 
   const onHandleSort = (event) => {
     const { value } = event.target;
-    dispatch(userSorting(value));
+    dispatch(userSorting(value))
   };
 
   return (

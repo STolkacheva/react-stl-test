@@ -1,7 +1,7 @@
 ## Запуск проекта
 
 - выполнить следующую команду `npm install`
-- в терминале запустить json-server  `json-server src/fixtures.json`
+- в терминале запустить json-server  `npm run json-server`
 - во втором терминале запустите `npm start`
 - откройте страницу `http://localhost:3001/`
 

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import UserForm from "../components/UserForm.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { fetchUpdate } from "../redux/actions";
+import { fetchUpdate } from "../store/usersSlice.js";
 
 export default function UserPage() {
 
-  const { users, success } = useSelector((state) => state);
+  const { users, success } = useSelector((state) => state.users);
   const [user, setUser] = useState();
 
   const params = useParams();
